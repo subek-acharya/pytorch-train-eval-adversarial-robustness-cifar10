@@ -23,10 +23,6 @@ wheels/
 .installed.cfg
 *.egg
 
-# PyTorch
-*.pth
-*.pt
-
 # Data
 data/
 checkpoint/
