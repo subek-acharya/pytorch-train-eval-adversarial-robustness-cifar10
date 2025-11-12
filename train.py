@@ -61,7 +61,7 @@ def test(epoch):
         for batch_idx, (inputs, targets) in enumerate(testloader):
             inputs, targets = inputs.to(device), targets.to(device)
             outputs = model(inputs)
-            loss = criterion(outputs, targets)  # Fixed: changed 'labels' to 'targets'
+            loss = criterion(outputs, targets)  
 
             test_loss += loss.item()
             _, predicted = outputs.max(1)
@@ -69,7 +69,7 @@ def test(epoch):
             correct += predicted.eq(targets).sum().item()
 
             utils.progress_bar(batch_idx, len(testloader), 'Loss: %.3f | Acc: %.3f%% (%d/%d)'
-                     % (test_loss/(batch_idx+1), 100.*correct/total, correct, total))  # Fixed: changed 'trainloader' to 'testloader' and 'train_loss' to 'test_loss'
+                     % (test_loss/(batch_idx+1), 100.*correct/total, correct, total))  
 
     # Save checkpoint
     acc = 100.*correct/total
