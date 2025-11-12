@@ -1,0 +1,8 @@
+# 1. PyTorch and torchvision
+pip install torch torchvision
+
+# 2. scikit-learn (for metrics)
+pip install scikit-learn
+
+# 3. NumPy
+pip install numpy
