@@ -144,13 +144,13 @@ python train.py  # Uncomment model = googlenet.GoogLeNet()
 ```
 
 ### Training Paramters
-
+```bash
 Epochs: 200
 Batch Size: 64
 Learning Rate: 0.01 (with Cosine Annealing)
 Optimizer: SGD with momentum (0.9)
 Weight Decay: 5e-4
-
+```
 ### Evaluating Models
 
 Evaluate a trained model on clean CIFAR-10 test data:
