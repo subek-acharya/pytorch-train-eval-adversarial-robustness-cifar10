@@ -21,8 +21,6 @@ This project implements a systematic evaluation framework to assess the adversar
 1. **FGSM (Fast Gradient Sign Method)**
 2. **PGD (Projected Gradient Descent)**
 
-## 🚀 Installation
-
 ## Setup
 
 1. Clone the repository:
