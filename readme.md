@@ -4,70 +4,22 @@
 
 A comprehensive implementation for training and evaluating the adversarial robustness of state-of-the-art CNN architectures on the CIFAR-10 dataset using white-box adversarial attacks.
 
-## 📋 Table of Contents
-
-- [Overview](#overview)
-- [Features](#features)
-- [Model Architectures](#model-architectures)
-- [Adversarial Attacks](#adversarial-attacks)
-- [Installation](#installation)
-- [Project Structure](#project-structure)
-- [Usage](#usage)
-  - [Training Models](#training-models)
-  - [Evaluating Models](#evaluating-models)
-  - [Running Adversarial Attacks](#running-adversarial-attacks)
-- [Results](#results)
-- [Requirements](#requirements)
-- [Contributing](#contributing)
-- [License](#license)
-- [Acknowledgments](#acknowledgments)
-
 ## 🔍 Overview
 
 This project implements a systematic evaluation framework to assess the adversarial robustness of various Convolutional Neural Network (CNN) architectures. The models are trained on the CIFAR-10 dataset and then tested against white-box adversarial attacks to analyze their vulnerability and robustness characteristics.
 
-## ✨ Features
-
-- **Multiple CNN Architectures**: Train and evaluate 4 different state-of-the-art models
-- **Comprehensive Metrics**: Accuracy, Precision, Recall, and F1-Score evaluation
-- **White-box Adversarial Attacks**: Implementation of FGSM and PGD attacks
-- **Comparative Analysis**: Side-by-side comparison of model robustness
-- **GPU Acceleration**: Multi-GPU support for faster training
-- **Reproducible Results**: Consistent training and evaluation pipeline
 
 ## 🏗️ Model Architectures
 
-The following CNN architectures are implemented and evaluated:
-
-1. **ResNet-18** (Pre-Activation)
-   - Deep residual learning with skip connections
-   - Pre-activation variant for improved gradient flow
-
+1. **ResNet-18**
 2. **VGG-16**
-   - Classic deep architecture with small convolutional filters
-   - Straightforward layer stacking approach
-
 3. **DenseNet-121**
-   - Dense connections between layers
-   - Feature reuse for parameter efficiency
-
-4. **GoogLeNet (Inception v1)**
-   - Multi-scale feature extraction with inception modules
-   - Auxiliary classifiers for improved gradient flow
+4. **GoogLeNet**
 
 ## ⚔️ Adversarial Attacks
 
-### White-box Attacks Implemented:
-
 1. **FGSM (Fast Gradient Sign Method)**
-   - Single-step attack
-   - Computationally efficient
-   - Baseline adversarial attack
-
 2. **PGD (Projected Gradient Descent)**
-   - Multi-step iterative attack
-   - Stronger than FGSM
-   - Considered one of the strongest first-order adversarial attacks
 
 ## 🚀 Installation
 
