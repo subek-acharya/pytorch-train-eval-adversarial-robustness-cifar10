@@ -23,12 +23,6 @@ This project implements a systematic evaluation framework to assess the adversar
 
 ## 🚀 Installation
 
-### Prerequisites
-
-- Python 3.8 or higher
-- CUDA-capable GPU (recommended)
-- pip package manager
-
 ## Setup
 
 1. Clone the repository:
