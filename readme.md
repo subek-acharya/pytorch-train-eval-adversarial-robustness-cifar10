@@ -173,20 +173,3 @@ All models were trained for 200 epochs on the CIFAR-10 dataset using the same tr
 | **DenseNet-121** | **95.28%** | 254.50 min | 6.96M |
 | **ResNet-18** | **95.22%** | 67.14 min | 11.17M |
 | **VGG-16** | **93.97%** | 57.82 min | 14.73M |
-
-#### Key Findings
-
-1. **Best Accuracy**: GoogLeNet achieved the highest test accuracy at **95.31%**, followed closely by DenseNet-121 (95.28%) and ResNet-18 (95.22%)
-
-2. **Training Efficiency**: 
-   - **Fastest Training**: VGG-16 (57.82 minutes) and ResNet-18 (67.14 minutes) were significantly faster to train
-   - **Longest Training**: GoogLeNet (253.27 minutes) and DenseNet-121 (254.50 minutes) required ~4x more training time
-
-3. **Accuracy vs. Training Time Trade-off**:
-   - ResNet-18 offers an excellent balance with 95.22% accuracy in just 67.14 minutes
-   - GoogLeNet and DenseNet-121 achieve marginally better accuracy (~0.1% improvement) but at the cost of 3.7x more training time
-
-4. **Parameter Efficiency**:
-   - **Most Efficient**: GoogLeNet (6.17M params, 95.31% accuracy) and DenseNet-121 (6.96M params, 95.28% accuracy)
-   - VGG-16 has 2.4x more parameters than GoogLeNet but achieves 1.34% lower accuracy
-   - ResNet-18 achieves competitive accuracy (95.22%) with moderate parameter count (11.17M)
