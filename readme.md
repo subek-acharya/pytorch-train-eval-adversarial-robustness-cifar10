@@ -102,7 +102,7 @@ Evaluate a trained model on clean CIFAR-10 test data:
 # Evaluate ResNet-18
 python main.py  
 # Set modelDir to "./checkpoint/resnet18.pth"
-# Set model = resnet.PreActResNet18().to(device)
+# Uncomment model = resnet.PreActResNet18().to(device)
 ```
 
 ## 📊 Results
