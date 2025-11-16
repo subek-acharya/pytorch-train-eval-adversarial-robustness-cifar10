@@ -100,7 +100,9 @@ Weight Decay: 5e-4
 Evaluate a trained model on clean CIFAR-10 test data:
 ```bash
 # Evaluate ResNet-18
-python main.py  # Set modelDir to "./checkpoint/resnet18.pth"
+python main.py  
+# Set modelDir to "./checkpoint/resnet18.pth"
+# Set model = resnet.PreActResNet18().to(device)
 ```
 
 ## 📊 Results

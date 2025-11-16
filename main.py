@@ -5,7 +5,7 @@ from model_architecture import resnet, vgg, densenet, googlenet
 import evaluation
 
 def main():
-    modelDir = "./checkpoint/resnet18.pth"
+    modelDir = "./checkpoint/googlenet.pth"
 
     #Parameters for the dataset
     batchSize = 64 
@@ -14,14 +14,26 @@ def main():
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
     # Create the model (note this does not include pre-trained weights)
-    model = resnet.PreActResNet18().to(device)
+    # model = resnet.PreActResNet18().to(device)
     # model = vgg.VGG('VGG16').to(device)
     # model = densenet.DenseNet121().to(device)
-    # model = torch.nn.DataParallel(model)
-    
-    #Next load in the trained weights of the model 
+    model = googlenet.GoogLeNet().to(device)
+
+    #Load the trained weights
     checkpoint = torch.load(modelDir)
-    model.load_state_dict(checkpoint['model'])
+    
+    # Remove 'module.' prefix from state_dict keys
+    state_dict = checkpoint['model']
+    new_state_dict = {}
+    for key, value in state_dict.items():
+        if key.startswith('module.'):
+            new_key = key[7:]  # Remove 'module.' prefix (7 characters)
+            new_state_dict[new_key] = value
+        else:
+            new_state_dict[key] = value
+    
+    # Load the cleaned state dict
+    model.load_state_dict(new_state_dict)
 
     #Switch the model into eval model for testing
     model = model.eval()

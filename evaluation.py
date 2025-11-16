@@ -51,6 +51,6 @@ def evaluate_model(device, model, testloader):
 
 def print_evaluation_results(results):
     print(f"  Accuracy:           {results['accuracy']:.2f}%")
-    print(f"  Precision:  {results['precision']:.2f}%")
+    print(f"  Precision (Macro):  {results['precision']:.2f}%")
     print(f"  Recall (Macro):     {results['recall']:.2f}%")
     print(f"  F1 Score (Macro):   {results['f1']:.2f}%")
