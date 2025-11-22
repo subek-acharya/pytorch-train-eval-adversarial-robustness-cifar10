@@ -1,7 +1,5 @@
 # Adversarial Robustness Evaluation on CIFAR-10
 
-
-
 A comprehensive implementation for training and evaluating the adversarial robustness of state-of-the-art CNN architectures on the CIFAR-10 dataset using white-box adversarial attacks.
 
 ## 🔍 Overview
@@ -20,6 +18,12 @@ This project implements a systematic evaluation framework to assess the adversar
 
 1. **FGSM (Fast Gradient Sign Method)**
 2. **PGD (Projected Gradient Descent)**
+
+**Attack Parameters:**
+- Perturbation Budget (ε): 0.031
+- PGD Steps: 20
+- PGD Step Size: 0.00155 (ε/20)
+- Clipping Range: [0.0, 1.0]
 
 ## Setup
 
@@ -59,10 +63,11 @@ adversarial-robustness-cifar10/
 ├── data/                        # CIFAR-10 dataset (auto-downloaded)
 │
 ├── train.py                     # Training script
-├── main.py                      # Evaluation script
+├── main.py                      # Evaluation and attack script
 ├── evaluation.py                # Evaluation metrics implementation
 ├── utils.py                     # Utility functions and data loaders
-├── adversarial_attack.py        # FGSM and PGD attack implementations
+├── AttackWrappersWhiteBox.py   # FGSM and PGD attack implementations
+├── visualize.py                 # Visualization utilities
 ├── requirements.txt             # Python dependencies
 └── README.md                    # This file
 
@@ -97,12 +102,20 @@ Weight Decay: 5e-4
 ```
 ### Evaluating Models
 
-Evaluate a trained model on clean CIFAR-10 test data:
+Evaluate a trained model on clean CIFAR-10 test data and adversarial examples:
 ```bash
-# Evaluate ResNet-18
-python main.py  
-# Set modelDir to "./checkpoint/resnet18.pth"
-# Uncomment model = resnet.PreActResNet18().to(device)
+# In main.py, set the model directory and uncomment the desired model:
+
+modelDir = "./checkpoint/resnet18_v2.pth"
+model = resnet.PreActResNet18().to(device)
+
+# For evaluation only, uncomment:
+# results = evaluation.evaluate_model(device, model, valLoader)
+# evaluation.print_evaluation_results(results)
+
+# For adversarial attacks, ensure the attack code is uncommented
+
+# Then run: python main.py
 ```
 
 ## 📊 Results
