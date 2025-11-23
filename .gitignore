@@ -25,7 +25,6 @@ wheels/
 
 # Data
 data/
-checkpoint/
 
 # IDE
 .vscode/
