@@ -106,7 +106,7 @@ Evaluate a trained model on clean CIFAR-10 test data:
 ```bash
 ## In main.py, set the model directory and uncomment the desired model:
 
-modelDir = "./checkpoint/resnet18_v2.pth"
+modelDir = "./checkpoint/resnet18.pth"
 model = resnet.PreActResNet18().to(device)
 
 # For evaluation only, uncomment:
@@ -134,7 +134,7 @@ epsilonStep = epsilonMax/numSteps  # Step size for PGD
 ```bash
 # In main.py, set the model directory and uncomment the desired model:
 
-modelDir = "./checkpoint/resnet18_v2.pth"
+modelDir = "./checkpoint/resnet18.pth"
 model = resnet.PreActResNet18().to(device)
 
 # Run the attacks
@@ -180,7 +180,7 @@ All models were trained for 200 epochs using identical training parameters to en
 
 Adversarial evaluation conducted on 1,000 correctly classified, class-balanced samples (100 per class) with ε = 0.031.
 
-| Model | Clean Acc. | FGSM Acc. | PGD Acc. |
+| Model | Clean Accuracy | FGSM Accuracy | PGD Accuracy |
 |-------|------------|-----------|----------|
 | VGG-16 | 93.33% | 55.9% | 8.7% |
 | DenseNet-121 | 95.33% | 52.4% | 11.1% |
