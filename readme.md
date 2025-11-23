@@ -19,14 +19,6 @@ This project implements a systematic evaluation framework to assess the adversar
 1. **FGSM (Fast Gradient Sign Method)**
 2. **PGD (Projected Gradient Descent)**
 
-**Attack Parameters:**
-```bash
-- Perturbation Budget (ε): 0.031
-- PGD Steps: 20
-- PGD Step Size: 0.00155 (ε/20)
-- Clipping Range: [0.0, 1.0]
-```
-
 ## Setup
 
 1. Clone the repository:
