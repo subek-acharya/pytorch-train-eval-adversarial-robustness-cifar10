@@ -56,6 +56,14 @@ adversarial-robustness-cifar10/
 │
 ├── data/                        # CIFAR-10 dataset (auto-downloaded)
 │
+├── sample_images/                   # Adversarial example visualizations
+│   ├── output1.png                  # Clean vs adversarial image comparison (ε = 1.0)
+│   └── output2.png                  # Clean vs adversarial image comparison (ε = 0.031)
+│
+├── infographics/                    # Performance visualization charts
+│   ├── adversarial_accuracy_comparison.png  # Robustness comparison chart
+│   └── model_comparison_styled.png          # Model performance metrics
+│
 ├── train.py                     # Training script
 ├── main.py                      # Evaluation and attack script
 ├── evaluation.py                # Evaluation metrics implementation
@@ -63,12 +71,6 @@ adversarial-robustness-cifar10/
 ├── AttackWrappersWhiteBox.py   # FGSM and PGD attack implementations
 ├── visualize.py                 # Visualization utilities
 ├── requirements.txt             # Python dependencies
-├── sample_images/                   # Adversarial example visualizations
-│   ├── output1.png                  # Clean vs adversarial image comparison (ε = 1.0)
-│   └── output2.png                  # Clean vs adversarial image comparison (ε = 0.031)
-├── infographics/                    # Performance visualization charts
-│   ├── adversarial_accuracy_comparison.png  # Robustness comparison chart
-│   └── model_comparison_styled.png          # Model performance metrics
 └── README.md                    # This file
 
 
