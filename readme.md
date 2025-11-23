@@ -20,10 +20,12 @@ This project implements a systematic evaluation framework to assess the adversar
 2. **PGD (Projected Gradient Descent)**
 
 **Attack Parameters:**
+```bash
 - Perturbation Budget (ε): 0.031
 - PGD Steps: 20
 - PGD Step Size: 0.00155 (ε/20)
 - Clipping Range: [0.0, 1.0]
+```
 
 ## Setup
 
@@ -79,17 +81,22 @@ adversarial-robustness-cifar10/
 
 To train a model, modify the model selection in train.py and run:
 ```bash
+# In train.py, uncomment the desired model:
+
 # Train ResNet-18
-python train.py  # Uncomment model = resnet.PreActResNet18()
+model = resnet.PreActResNet18().to(device)
 
 # Train VGG-16
-python train.py  # Uncomment model = vgg.VGG('VGG16')
+# model = vgg.VGG('VGG16').to(device)
 
 # Train DenseNet-121
-python train.py  # Uncomment model = densenet.DenseNet121()
+# model = densenet.DenseNet121().to(device)
 
 # Train GoogLeNet
-python train.py  # Uncomment model = googlenet.GoogLeNet()
+# model = googlenet.GoogLeNet().to(device)
+
+# Then run:
+python train.py
 ```
 
 ### Training Paramters
@@ -102,33 +109,88 @@ Weight Decay: 5e-4
 ```
 ### Evaluating Models
 
-Evaluate a trained model on clean CIFAR-10 test data and adversarial examples:
+Evaluate a trained model on clean CIFAR-10 test data:
+
+```bash
+## In main.py, set the model directory and uncomment the desired model:
+
+modelDir = "./checkpoint/resnet18_v2.pth"
+model = resnet.PreActResNet18().to(device)
+
+# For evaluation only, uncomment:
+results = evaluation.evaluate_model(device, model, valLoader)
+evaluation.print_evaluation_results(results)
+
+# Then run:
+python main.py
+```
+
+### Adversarial Attacks
+
+Generate and evaluate adversarial examples using white-box attacks.
+
+### Training Paramters
+```bash
+epsilonMax = 0.031      # Maximum perturbation
+clipMin = 0.0           # Minimum value a pixel can take
+clipMax = 1.0           # Maximum value a pixel can take 
+numSteps = 20           # Number of PGD steps
+epsilonStep = epsilonMax/numSteps  # Step size for PGD
+```
+
+### Running Attacks
 ```bash
 # In main.py, set the model directory and uncomment the desired model:
 
 modelDir = "./checkpoint/resnet18_v2.pth"
 model = resnet.PreActResNet18().to(device)
 
-# For evaluation only, uncomment:
-# results = evaluation.evaluate_model(device, model, valLoader)
-# evaluation.print_evaluation_results(results)
+# Run the attacks
+advLoader_FGSM = AttackWrappersWhiteBox.FGSMNativePytorch(device, correctLoader, model, epsilonMax, clipMin, clipMax)
+advLoader_PGD = AttackWrappersWhiteBox.PGDNativePytorch(device, correctLoader, model, epsilonMax, epsilonStep, numSteps, clipMin, clipMax)
 
-# For adversarial attacks, ensure the attack code is uncommented
-
-# Then run: python main.py
+# Then run:
+python main.py
 ```
+
+
+
 
 ## 📊 Results
 
-### Clean CIFAR-10 Test Accuracy
+### Clean CIFAR-10 Test Performance
 
-All models were trained for 200 epochs on the CIFAR-10 dataset using the same training parameters (SGD with momentum, cosine annealing learning rate scheduler, batch size 64).
+All models were trained for 200 epochs using identical training parameters to ensure fair comparison.
 
-#### Performance Comparison
+#### Training Performance Comparison
 
-| Model | Test Accuracy | Training Time | Total Parameters |
-|-------|--------------|---------------|------------------|
-| **GoogLeNet** | **95.31%** | 253.27 min | 6.17M |
-| **DenseNet-121** | **95.28%** | 254.50 min | 6.96M |
-| **ResNet-18** | **95.22%** | 67.14 min | 11.17M |
-| **VGG-16** | **93.97%** | 57.82 min | 14.73M |
+| Model | Test Accuracy | Training Time | Parameters |
+|-------|---------------|---------------|------------|
+| DenseNet-121 | 95.33% | 256.62 min | 6.96M |
+| GoogLeNet | 95.28% | 266.23 min | 6.17M |
+| ResNet-18 | 95.17% | 68.80 min | 11.17M |
+| VGG-16 | 93.33% | 47.13 min | 14.73M |
+
+#### Evaluation Metrics (Clean Data)
+
+| Model | Accuracy | Precision | Recall | F1 Score |
+|-------|----------|-----------|--------|----------|
+| DenseNet-121 | 95.33% | 95.33% | 95.33% | 95.33% |
+| GoogLeNet | 95.28% | 95.28% | 95.28% | 95.28% |
+| ResNet-18 | 95.17% | 95.17% | 95.17% | 95.16% |
+| VGG-16 | 93.33% | 93.34% | 93.33% | 93.33% |
+
+*All metrics computed using macro-averaging across all 10 CIFAR-10 classes.*
+
+---
+
+### Adversarial Robustness Results
+
+Adversarial evaluation conducted on 1,000 correctly classified, class-balanced samples (100 per class) with ε = 0.031.
+
+| Model | Clean Acc. | FGSM Acc. | PGD Acc. |
+|-------|------------|-----------|----------|
+| VGG-16 | 93.33% | 55.9% | 8.7% |
+| DenseNet-121 | 95.33% | 52.4% | 11.1% |
+| ResNet-18 | 95.17% | 42.9% | 0.5% |
+| GoogLeNet | 95.28% | 33.9% | 0.0% |
