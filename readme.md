@@ -131,7 +131,7 @@ python main.py
 
 Generate and evaluate adversarial examples using white-box attacks.
 
-### Training Paramters
+### Attack Paramters
 ```bash
 epsilonMax = 0.031      # Maximum perturbation
 clipMin = 0.0           # Minimum value a pixel can take
