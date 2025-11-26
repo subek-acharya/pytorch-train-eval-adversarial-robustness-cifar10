@@ -38,45 +38,6 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-## Project Structure
-```bash
-adversarial-robustness-cifar10/
-│
-├── model_architecture/          # Model architecture implementations
-│   ├── resnet.py               # ResNet-18 implementation
-│   ├── vgg.py                  # VGG-16 implementation
-│   ├── densenet.py             # DenseNet-121 implementation
-│   └── googlenet.py            # GoogLeNet implementation
-│
-├── checkpoint/                  # Saved model checkpoints
-│   ├── resnet18.pth
-│   ├── vgg16.pth
-│   ├── densenet121.pth
-│   └── googlenet.pth
-│
-├── data/                        # CIFAR-10 dataset (auto-downloaded)
-│
-├── sample_images/                   # Adversarial example visualizations
-│   ├── output1.png                  # Clean vs adversarial image comparison (ε = 1.0)
-│   └── output2.png                  # Clean vs adversarial image comparison (ε = 0.031)
-│
-├── infographics/                    # Performance visualization charts
-│   ├── adversarial_accuracy_comparison.png  # Robustness comparison chart
-│   └── model_comparison_styled.png          # Model performance metrics
-│
-├── train.py                     # Training script
-├── main.py                      # Evaluation and attack script
-├── evaluation.py                # Evaluation metrics implementation
-├── utils.py                     # Utility functions and data loaders
-├── AttackWrappersWhiteBox.py   # FGSM and PGD attack implementations
-├── visualize.py                 # Visualization utilities
-├── requirements.txt             # Python dependencies
-└── README.md                    # This file
-
-
-
-```
-
 ## Usage
 
 ### Training Models
@@ -155,7 +116,41 @@ advLoader_PGD = AttackWrappersWhiteBox.PGDNativePytorch(device, correctLoader, m
 python main.py
 ```
 
-
+## Project Structure
+```bash
+adversarial-robustness-cifar10/
+│
+├── model_architecture/          # Model architecture implementations
+│   ├── resnet.py               # ResNet-18 implementation
+│   ├── vgg.py                  # VGG-16 implementation
+│   ├── densenet.py             # DenseNet-121 implementation
+│   └── googlenet.py            # GoogLeNet implementation
+│
+├── checkpoint/                  # Saved model checkpoints
+│   ├── resnet18.pth
+│   ├── vgg16.pth
+│   ├── densenet121.pth
+│   └── googlenet.pth
+│
+├── data/                        # CIFAR-10 dataset (auto-downloaded)
+│
+├── sample_images/                   # Adversarial example visualizations
+│   ├── output1.png                  # Clean vs adversarial image comparison (ε = 1.0)
+│   └── output2.png                  # Clean vs adversarial image comparison (ε = 0.031)
+│
+├── infographics/                    # Performance visualization charts
+│   ├── adversarial_accuracy_comparison.png  # Robustness comparison chart
+│   └── model_comparison_styled.png          # Model performance metrics
+│
+├── train.py                     # Training script
+├── main.py                      # Evaluation and attack script
+├── evaluation.py                # Evaluation metrics implementation
+├── utils.py                     # Utility functions and data loaders
+├── AttackWrappersWhiteBox.py   # FGSM and PGD attack implementations
+├── visualize.py                 # Visualization utilities
+├── requirements.txt             # Python dependencies
+└── README.md                    # This file
+```
 
 
 ## 📊 Results
