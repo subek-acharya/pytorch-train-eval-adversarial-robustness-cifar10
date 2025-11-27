@@ -23,7 +23,7 @@ This project implements a systematic evaluation framework to assess the adversar
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/adversarial-robustness-cifar10.git
+git clone https://github.com/subek-acharya/pytorch-train-eval-adversarial-robustness-cifar10.git
 cd adversarial-robustness-cifar10
 ```
 
