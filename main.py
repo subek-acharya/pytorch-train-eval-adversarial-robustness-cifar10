@@ -44,10 +44,10 @@ def main():
     #Load in the dataset
     valLoader = utils.GetCIFAR10Validation(batchSize)
     
-    Evaluate model
+    # Evaluate model
     results = evaluation.evaluate_model(device, model, valLoader)
     
-    Print results
+    # Print results
     evaluation.print_evaluation_results(results)
 
     # Get correctly classified, classwise balanced samples to do the attack
