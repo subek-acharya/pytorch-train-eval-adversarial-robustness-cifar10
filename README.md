@@ -7,7 +7,7 @@ A comprehensive implementation for training and evaluating the adversarial robus
 This project implements a systematic evaluation framework to assess the adversarial robustness of various Convolutional Neural Network (CNN) architectures. The models are trained on the CIFAR-10 dataset and then tested against white-box adversarial attacks to analyze their vulnerability and robustness characteristics.
 
 
-##Model Architectures
+## Model Architectures
 
 1. **ResNet-18**
 2. **VGG-16**
