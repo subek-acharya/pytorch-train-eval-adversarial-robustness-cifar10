@@ -1,42 +1,23 @@
-# Adversarial Robustness Evaluation on CIFAR-10
+## Training and Adversarial Evaluation of CNNs on CIFAR-10
 
 A comprehensive implementation for training and evaluating the adversarial robustness of state-of-the-art CNN architectures on the CIFAR-10 dataset using white-box adversarial attacks.
 
-## 🔍 Overview
+## Overview
 
 This project implements a systematic evaluation framework to assess the adversarial robustness of various Convolutional Neural Network (CNN) architectures. The models are trained on the CIFAR-10 dataset and then tested against white-box adversarial attacks to analyze their vulnerability and robustness characteristics.
 
 
-## 🏗️ Model Architectures
+##Model Architectures
 
 1. **ResNet-18**
 2. **VGG-16**
 3. **DenseNet-121**
 4. **GoogLeNet**
 
-## ⚔️ Adversarial Attacks
+## Adversarial Attacks
 
 1. **FGSM (Fast Gradient Sign Method)**
 2. **PGD (Projected Gradient Descent)**
-
-## Setup
-
-1. Clone the repository:
-```bash
-git clone https://github.com/subek-acharya/pytorch-train-eval-adversarial-robustness-cifar10.git
-cd pytorch-train-eval-adversarial-robustness-cifar10
-```
-
-2. Create a virtual environment:
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-```
-
-3. Install required packages:
-```bash
-pip install -r requirements.txt
-```
 
 ## Usage
 
@@ -153,7 +134,7 @@ adversarial-robustness-cifar10/
 ```
 
 
-## 📊 Results
+## Results
 
 ### Clean CIFAR-10 Test Performance
 
