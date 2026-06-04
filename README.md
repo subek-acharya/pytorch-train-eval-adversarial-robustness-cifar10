@@ -1,4 +1,4 @@
-## Training and Adversarial Evaluation of CNNs on CIFAR-10
+# Training and Adversarial Evaluation of CNNs on CIFAR-10
 
 A comprehensive implementation for training and evaluating the adversarial robustness of state-of-the-art CNN architectures on the CIFAR-10 dataset using white-box adversarial attacks.
 
